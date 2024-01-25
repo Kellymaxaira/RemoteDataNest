@@ -1,5 +1,4 @@
 <div>
-
     <form action="{{ url('devices') }}" method="POST">
         @csrf
         <label for="name">First name:</label><br>
