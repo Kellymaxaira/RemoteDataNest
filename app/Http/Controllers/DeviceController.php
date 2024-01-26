@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class DeviceController extends Controller
 {
-    //
 
     public function index()
     {
@@ -37,6 +36,15 @@ class DeviceController extends Controller
         return redirect('devices');
     }
 
+    public function show(string $id)
+    {
+
+        $device = Device::where('id',$id)->with('data')->first();
+        dd($device);
+        return view('devices.show',compact('device'));
+
+    }
+
     public function edit(string $id)
     {
 
@@ -54,7 +62,7 @@ class DeviceController extends Controller
             'description' => 'required|string',
         ]);
 
-        $device = Device::find($id)->update($validated);
+        Device::find($id)->update($validated);
 
         return redirect('devices');
 

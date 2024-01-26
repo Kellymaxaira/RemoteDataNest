@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Data;
+use App\Models\Device;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,7 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         \App\Models\Device::factory(10)->create();
+         Device::factory(10)
+             ->has(Data::factory()->count(10))
+             ->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

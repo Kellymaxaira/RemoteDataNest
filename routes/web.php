@@ -30,5 +30,5 @@ Route::get('/', function () {
 //});
 //
 
-    Route::resource('devices',DeviceController::class);
+    Route::resource('devices',DeviceController::class)->middleware(['Auth']);
 

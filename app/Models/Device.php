@@ -15,4 +15,9 @@ class Device extends Model
         'type',
         'descrition'
     ];
+
+    public function data()
+    {
+        return $this->hasMany(Data::class);
+    }
 }
